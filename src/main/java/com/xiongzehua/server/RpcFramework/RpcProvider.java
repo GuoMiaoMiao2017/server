@@ -45,15 +45,21 @@ public class RpcProvider {
                             for (int i = 0; i < param.length; i ++) {
                                 param[i] = param[i].replace("String,", "");
                             }
-
+                            Map<String, String> map = new HashMap<>();
                             RedisProvider service = RedisProviderImpl.getRedisProviderImpl();
                             if (method.equals("set")) {
                                 service.set(param[0], param[1]);
+                                map.put("code", "1");
+                                map.put("msg", "set成功");
                             }
-
-                            Map<String, String> map = new HashMap<>();
-                            map.put("code", "1");
-                            map.put("msg", "set成功");
+                            if (method.equals("get")) {
+                                String value = service.get(param[0]);
+                                if (!value.isEmpty()) {
+                                    map.put("code", "1");
+                                    map.put("msg", "set成功");
+                                    map.put("value", value);
+                                }
+                            }
 
                             ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
                             output.write(JSON.toJSONBytes(map));
