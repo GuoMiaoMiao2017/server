@@ -1,9 +1,7 @@
 package com.xiongzehua.server;
-
 import com.xiongzehua.server.RpcFramework.RpcProvider;
-import com.xiongzehua.server.service.Redis;
 import com.xiongzehua.server.service.RedisProvider;
-import org.springframework.boot.SpringApplication;
+import com.xiongzehua.server.service.RedisProviderImpl;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -15,8 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ServerApplication {
     public static void main(String[] args) throws Exception {
 //        SpringApplication.run(ServerApplication.class, args);
-        Redis service = RedisProvider.getRedisProvider();
-        RpcProvider.export(service, 1237);
+//        RedisProvider service = RedisProviderImpl.getRedisProviderImpl();
+        RpcProvider.export(1235);
     }
 }
 

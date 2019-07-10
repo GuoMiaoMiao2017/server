@@ -5,18 +5,18 @@ server:
     min-spare-threads: 30
   port: 18080
   connection-timeout: 500ms
-#spring:
-#  jackson:
-#    date-format:
-#  profiles:
-#    active: dev
-#logging:
-#  level:
-#    com:
-#      xiongzehua: debug
+spring:
+  jackson:
+    date-format:
+  profiles:
+    active: dev
+logging:
+  level:
+    com:
+      xiongzehua: debug
 
-#mybatis-plus:
-#  mapper-locations: classpath:mapper/*Mapper.xml
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
 
 
 #pagehelper:
